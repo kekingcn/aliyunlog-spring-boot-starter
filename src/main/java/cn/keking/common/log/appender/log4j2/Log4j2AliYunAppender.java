@@ -14,14 +14,12 @@ import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
-import org.slf4j.MDC;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-import static cn.keking.common.log.LogAppenderAutoConfiguration.AUTH_USERNAME;
 
 /**
  * Aliyun appender for log4j2
@@ -89,7 +87,6 @@ public class Log4j2AliYunAppender extends AbstractAppender {
         item.PushBack("time", dateTime.toString(formatter));
         item.PushBack("level", event.getLevel().toString());
         item.PushBack("thread", event.getThreadName());
-        item.PushBack("username", MDC.get(AUTH_USERNAME));
 
         StackTraceElement source = event.getSource();
         if (source == null && (!event.isIncludeLocation())) {

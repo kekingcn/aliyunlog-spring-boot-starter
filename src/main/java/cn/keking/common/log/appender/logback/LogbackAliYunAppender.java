@@ -20,8 +20,6 @@ import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
-import org.slf4j.MDC;
-import static cn.keking.common.log.LogAppenderAutoConfiguration.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -112,7 +110,6 @@ public class LogbackAliYunAppender<E> extends UnsynchronizedAppenderBase<E> {
         item.PushBack("time", dateTime.toString(formatter));
         item.PushBack("level", event.getLevel().toString());
         item.PushBack("thread", event.getThreadName());
-        item.PushBack("username",MDC.get(AUTH_USERNAME));
 
         StackTraceElement[] caller = event.getCallerData();
         if (caller != null && caller.length > 0) {
