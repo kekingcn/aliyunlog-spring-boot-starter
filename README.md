@@ -126,8 +126,3 @@ aliyun.log.pattern=%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n
 ```properties
 aliyun.log.pattern=%d{HH:mm:ss.SSS} [%traceId] [%t] %-5level %logger{36} - %msg%n
 ```
-#### 5.6 未接入授权网关，但是使用授权认证的怎么记录username？
-有些系统使用了授权，但是没有对接授权网关，导致日志组件获取不到username属性，有三种方法可解决问题：
-- 1、对接授权网关，使用网关统一鉴权，推荐这种方式
-- 2、用户登录后，在请求中设置header参数username、或者userName，如username = kl 。目前已兼容参数名字userName和销管平台的token模式了
-- 3、如果应用已经有类似的header参数传递，只是属性名字不是上面兼容的这些，为了不产生歧义，也可在后台统一filter里是用MDC.put("username",""kl")设值
