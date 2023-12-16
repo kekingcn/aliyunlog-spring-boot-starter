@@ -159,11 +159,11 @@
     <distributionManagement>
         <snapshotRepository>
             <id>repo</id>
-            <url>http://ops.keking.cn:8081/nexus/content/repositories/snapshots</url>
+            <url>https://ops.keking.cn:8081/nexus/content/repositories/snapshots</url>
         </snapshotRepository>
         <repository>
             <id>repo</id>
-            <url>http://ops.keking.cn:8081/nexus/content/repositories/releases</url>
+            <url>https://ops.keking.cn:8081/nexus/content/repositories/releases</url>
         </repository>
     </distributionManagement>
 
